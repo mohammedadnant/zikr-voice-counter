@@ -6,14 +6,27 @@ const presets:Preset[]=[
 {name:'Allahu Akbar',arabic:'ٱللَّٰهُ أَكْبَرُ',spoken:['allahu akbar','الله أكبر'],target:34},
 {name:'La ilaha illallah',arabic:'لَا إِلَٰهَ إِلَّا ٱللَّٰهُ',spoken:['la ilaha illallah','لا إله إلا الله'],target:100},
 {name:'Astaghfirullah',arabic:'أَسْتَغْفِرُ ٱللَّٰهَ',spoken:['astaghfirullah','أستغفر الله'],target:100},
-{name:'Salawat',arabic:'اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ',spoken:['allahumma salli ala muhammad','اللهم صل على محمد'],target:100}
+{name:'Salawat',arabic:'اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ',spoken:['allahumma salli ala muhammad','اللهم صل على محمد'],target:100},
+{"name":"Durood Ibrahim (full)","arabic":"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ","spoken":["اللهم صل على محمد وعلى آل محمد كما صليت على إبراهيم وعلى آل إبراهيم","allahumma salli ala muhammad wa ala ali muhammad kama sallayta ala ibrahim"],"target":10},
+{"name":"Durood / Salawat (short)","arabic":"صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ","spoken":["صلى الله عليه وسلم","sallallahu alayhi wasallam","sallallahu alaihi wasallam"],"target":100},
+{"name":"SubhanAllahi wa bihamdihi","arabic":"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ","spoken":["سبحان الله وبحمده","subhanallahi wa bihamdihi","subhan allahi wa bihamdihi"],"target":100},
+{"name":"SubhanAllahil Azim","arabic":"سُبْحَانَ اللَّهِ الْعَظِيمِ","spoken":["سبحان الله العظيم","subhanallahil azeem","subhanallahil azim"],"target":100},
+{"name":"SubhanAllahi wa bihamdihi, SubhanAllahil Azim","arabic":"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ","spoken":["سبحان الله وبحمده سبحان الله العظيم","subhanallahi wa bihamdihi subhanallahil azim"],"target":100},
+{"name":"La hawla wa la quwwata illa billah","arabic":"لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ","spoken":["لا حول ولا قوة إلا بالله","la hawla wa la quwwata illa billah"],"target":100},
+{"name":"Hasbunallahu wa ni'mal wakeel","arabic":"حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ","spoken":["حسبنا الله ونعم الوكيل","hasbunallahu wa nimal wakeel"],"target":100},
+{"name":"La ilaha illa anta subhanaka","arabic":"لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ","spoken":["لا إله إلا أنت سبحانك إني كنت من الظالمين","la ilaha illa anta subhanaka inni kuntu minaz zalimin"],"target":100},
+{"name":"Rabbighfir li","arabic":"رَبِّ اغْفِرْ لِي","spoken":["رب اغفر لي","rabbighfir li","rabbi ghfir li"],"target":100},
+{"name":"Astaghfirullaha wa atubu ilayh","arabic":"أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ","spoken":["استغفر الله واتوب اليه","astaghfirullaha wa atubu ilayh"],"target":100},
+{"name":"La ilaha illallahu wahdahu","arabic":"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ","spoken":["لا إله إلا الله وحده لا شريك له له الملك وله الحمد وهو على كل شيء قدير","la ilaha illallahu wahdahu la sharika lah lahul mulku wa lahul hamdu wa huwa ala kulli shayin qadir"],"target":100},
+{"name":"Allahumma innaka afuwwun","arabic":"اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي","spoken":["اللهم انك عفو تحب العفو فاعف عني","allahumma innaka afuwwun tuhibbul afwa fafu anni"],"target":100},
+{"name":"Ya Hayyu Ya Qayyum","arabic":"يَا حَيُّ يَا قَيُّومُ","spoken":["يا حي يا قيوم","ya hayyu ya qayyum"],"target":100}
 ];
 type Recognition= {lang:string;continuous:boolean;interimResults:boolean;onresult:((e:any)=>void)|null;onerror:((e:any)=>void)|null;onend:(()=>void)|null;start:()=>void;stop:()=>void};
 declare global{interface Window{SpeechRecognition?:new()=>Recognition;webkitSpeechRecognition?:new()=>Recognition}}
-const norm=(s:string)=>s.toLowerCase().normalize('NFKC').replace(/[\u064b-\u065f\u0670]/g,'').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
+const norm=(s:string)=>s.toLowerCase().normalize('NFKC').replace(/[\u064b-\u065f\u0670]/g,'').replace(/[إأآٱ]/g,'ا').replace(/ى/g,'ي').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
 function countMatches(text:string,phrases:string[]){let remaining=' '+norm(text)+' ';let total=0;for(const phrase of [...phrases].sort((a,b)=>b.length-a.length)){const p=' '+norm(phrase)+' ';if(p.trim().length<3)continue;let i=remaining.indexOf(p);while(i!==-1){total++;remaining=remaining.slice(0,i)+' '.repeat(p.length)+remaining.slice(i+p.length);i=remaining.indexOf(p)}}return total}
 function App(){const[choice,setChoice]=useState(0),[custom,setCustom]=useState(''),[count,setCount]=useState(0),[target,setTarget]=useState(33),[listening,setListening]=useState(false),[status,setStatus]=useState('Ready'),[lang,setLang]=useState('ar-SA');const rec=useRef<Recognition|null>(null),desired=useRef(false),base=useRef(0),last=useRef('');const phrase=choice===-1?custom:presets[choice].name;const arabic=choice===-1?'':presets[choice].arabic;const variants=choice===-1?[custom]:presets[choice].spoken;
-useEffect(()=>{try{const saved=JSON.parse(localStorage.getItem('zikr-v1')||'{}');if(typeof saved.count==='number')setCount(saved.count);if(typeof saved.target==='number')setTarget(saved.target);if(typeof saved.choice==='number')setChoice(saved.choice);if(typeof saved.custom==='string')setCustom(saved.custom)}catch{}},[]);
+useEffect(()=>{try{const saved=JSON.parse(localStorage.getItem('zikr-v1')||'{}');if(typeof saved.count==='number')setCount(saved.count);if(typeof saved.target==='number')setTarget(saved.target);if(typeof saved.choice==='number'&&(saved.choice===-1||(saved.choice>=0&&saved.choice<presets.length)))setChoice(saved.choice);if(typeof saved.custom==='string')setCustom(saved.custom)}catch{}},[]);
 useEffect(()=>{localStorage.setItem('zikr-v1',JSON.stringify({count,target,choice,custom}))},[count,target,choice,custom]);
 function stop(){desired.current=false;rec.current?.stop();rec.current=null;setListening(false);setStatus('Paused')}
 function select(v:number){stop();setChoice(v);setCount(0);setTarget(v===-1?100:presets[v].target);last.current=''}
