@@ -27,3 +27,5 @@ Deploy the `dist/` build to a static host. For GitHub Pages under a repository s
 
 ## Privacy
 Only count, target and selection are stored locally in the browser. Clearing site data resets them.
+
+Deployment retry: GitHub Pages configured for GitHub Actions.
